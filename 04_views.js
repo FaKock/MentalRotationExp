@@ -23,15 +23,19 @@ const intro = babeViews.intro({
     trials: 1,
     name: 'intro',
     // If you use JavaScripts Template String `I am a Template String`, you can use HTML <></> and javascript ${} inside
-    text:   `This is a sample introduction view.
+    text:   `Welcome,
             <br />
             <br />
-            The introduction view welcomes the participant and gives general information
-            about the experiment. You are in the <strong>${coin}</strong> group.
+            this is an experiment regarding mental rotation.
             <br />
             <br />
-            This is a minimal experiment with one forced choice view. It can serve as a starting point for programming your own experiment.`,
-   buttonText: 'Begin the experiment'
+            The experiment is split into a practice phase and a main test phase.
+            The practice phase will introduce you to the task so you may perform more securely in the main test phase.
+            We thank you for participating in our experiment.
+            <br />
+            <br />
+            If you coninue you will see the instructions.`,
+   buttonText: 'Continue'
 });
 
 // For most tasks, you need instructions views
@@ -39,13 +43,43 @@ const instructions = babeViews.instructions({
     trials: 1,
     name: 'instrucions',
     title: 'General Instructions',
-    text:  `This is a sample instructions view.
+    text:  `In the following you will be shown pictures like the example picture below.
+            Your goal is to fast and accurately describe if the depicted forms are different or the same.
+            If the forms are the same please press the key 'b'. If the forms are different please press the key 'n'
+            Please use your dominant hand to press the keys during the experiment.
             <br />
             <br />
-            Tell your participants what they are to do here.`,
-    buttonText: 'go to trials'
+            In the trial phase you will be randomly shown 12 pictures to judge.
+            After each picture you will be provided a key press feedback as to whether the response was “correct” or
+            “incorrect”.
+            <br />
+            <br />
+            During the main test phase you will be shown 48 random pictures to judge.
+            There will be no key press feedback.
+            <br />
+            <br />
+            If you have no questions please continue on.`,
+    picture:"images/sample.jpg",
+    buttonText: 'Continue'
 });
 
+//In the begin screen the participant can collect its sorts before starting the experiment
+const begin_pp = babeViews.begin({
+    trials: 1,
+    name: 'begin_pp',
+    title: 'Start the practice phase',
+    text: 'If you feel ready to start the practice phase please press "Begin"',
+    buttonText: 'Begin'
+});
+
+//In the begin screen the participant can collect its sorts before starting the experiment
+const begin_main = babeViews.begin({
+    trials: 1,
+    name: 'begin_main',
+    title: 'Start the main test phase',
+    text: 'If you feel ready to start the main test phase please press "Begin"',
+    buttonText: 'Begin'
+});
 
 // In the post test questionnaire you can ask your participants addtional questions
 const post_test = babeViews.postTest({
@@ -101,14 +135,24 @@ const thanks = babeViews.thanks({
 */
 
 
-// Here, we initialize a forcedChoice view
-const forced_choice_2A = babeViews.forcedChoice({
+// Here, we initialize a key press view
+const key_press_practice = babeViews.keyPress({
     // This will use all trials specified in `data`, you can user a smaller value (for testing), but not a larger value
-    trials: trial_info.forced_choice.length,
+    trials: trial_info.key_press.length,
     // name and trial_type should be identical to the variable name
-    name: 'forced_choice_2A',
-    trial_type: 'forced_choice_2A',
-    data: trial_info.forced_choice
+    name: 'key_press_practice',
+    trial_type: 'key_press_practice',
+    data: trial_info.key_press
+});
+
+// Here, we initialize a forcedChoice view
+const key_press_task = babeViews.keyPress({
+    // This will use all trials specified in `data`, you can user a smaller value (for testing), but not a larger value
+    trials: trial_info.key_press.length,
+    // name and trial_type should be identical to the variable name
+    name: 'key_press_task',
+    trial_type: 'key_press_task',
+    data: trial_info.key_press
 });
 
 // There are many more templates available:

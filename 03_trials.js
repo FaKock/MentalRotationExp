@@ -2,18 +2,46 @@
 
 
 const trial_info = {
-    forced_choice: [
+    key_press: [
         {
-            question: "What's on the bread?",
-            picture: "images/question_mark_02.png",
-            option1: 'jam',
-            option2: 'ham'
+          picture: "images/1_50_R.jpg",
+          key1: 'b',
+          key2: 'n',
+          b: 'same',
+          n: 'different',
+          expected: 'different'
         },
         {
-            question: "What's the weather like?",
-            picture: "images/weather.jpg",
-            option1: "shiny",
-            option2: "rainbow"
+          picture: "images/1_150.jpg",
+          key1: 'b',
+          key2: 'n',
+          b: 'same',
+          n: 'different',
+          expected: 'same'
+        },
+        {
+          picture: "images/2_150_R.jpg",
+          key1: 'b',
+          key2: 'n',
+          b: 'same',
+          n: 'different',
+          expected: 'different'
+        },
+        {
+          picture: "images/2_50.jpg",
+          key1: 'b',
+          key2: 'n',
+          b: 'same',
+          n: 'different',
+          expected: 'same'
+        },
+        {
+          picture: "images/3_50_R.jpg",
+          key1: 'b',
+          key2: 'n',
+          b: 'same',
+          n: 'different',
+          expected: 'different'
         }
     ],
 };
